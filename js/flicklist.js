@@ -72,6 +72,7 @@ function render() {
       .append(title)
       // TODO 3
       // give itemView a class attribute of "item-watchlist"
+        .attr('class', 'item-watchlist');
 
     $("#section-watchlist ul").append(itemView);
   });
@@ -89,7 +90,7 @@ function render() {
       // the button should be disabled if this movie is already in
       // the user's watchlist
       // see jQuery .prop() and Array.indexOf()
-    .prop('disabled', model.watchlistItems.indexOf(movie) !== -1);
+    button.prop('disabled', model.watchlistItems.indexOf(movie) !== -1);
 
 
     // TODO 1
