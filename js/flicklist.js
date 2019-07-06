@@ -50,13 +50,19 @@ function render() {
   
   // TODO 6
   // for each movie on the user's watchlist, insert a list item into the <ul> in the watchlist section
+  model.watchlistItems.forEach(function(movie) {
+  	  var listItem = document.createElement('li');
+  	  listItem.textContent = movie.original_title;
+	  $("#section-watchlist ul").append(listItem);
+  });
 
   
   // for each movie on the current browse list, 
   model.browseItems.forEach(function(movie) {
 		// TODO 3
 		// insert a list item into the <ul> in the browse section
-	  var title = $("<p></p>").text(movie.original_title);
+	  var title = document.createElement('p');
+	  title.textContent = movie.original_title;
 	  var listItem = document.createElement('li');
 	  title.append(listItem);
 	  $('#section-browse ul').append(title);
