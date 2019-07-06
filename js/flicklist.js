@@ -14,7 +14,7 @@ var model = {
 
 var api = {
   root: "https://api.themoviedb.org/3",
-  token: "8e888fa39ec243e662e1fb738c42ae99" // TODO 0 add your api key
+  token: "2f921859b908bef2ab5f09c36c78a969" // TODO 0 add your api key
 }
 
 
@@ -89,12 +89,16 @@ function render() {
       // the button should be disabled if this movie is already in
       // the user's watchlist
       // see jQuery .prop() and Array.indexOf()
+    .prop('disabled', model.watchlistItems.indexOf(movie) !== -1);
 
 
     // TODO 1
     // create a paragraph containing the movie object's .overview value
     // then, in the code block below,
     // append the paragraph in between the title and the button
+    var overview = document.createElement('p');
+    overview.textContent = movie.overview;
+    title.append(overview);
 
 
     // append everything to itemView, along with an <hr/>
