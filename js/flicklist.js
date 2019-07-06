@@ -45,12 +45,23 @@ function discoverMovies(callback) {
  * if successful, updates model.browseItems appropriately and then invokes
  * the callback function that was passed in
  */
-function searchMovies(searchTerm, callback) {
-  console.log("searching for movies with '" + searchTerm + "' in their title...");
+function searchMovies(query, callback) {
+  console.log("searching for movies with '" + query + "' in their title...");
 
   // TODO 9
   // implement this function as described in the comment above
   // you can use the body of discoverMovies as a jumping off point
+  $.ajax({
+    url: api.root + "/search/movie",
+    data: {
+      api_key: api.token,
+      query: query
+    },
+    success: function(response) {
+      model.browseItems = response.results;
+      callback(response);
+    }
+  })
 
 
 }
